@@ -76,16 +76,13 @@ export class UsersComponent implements OnInit {
   editNow() {
     this.apiService.updateUser(this.item.id, this.user).subscribe(response => {
       console.log(response);
-      ////////////////////////////////////////
       this._router.navigate(['/home']);
-      //////////////////////////////////////////
       this.ngOnInit();
     })
   }
 
   deleteUser(id) {
     console.log(this.users);
-    //this.users.find('id':id);
     let item = this.users.find(i => i.id === id);
     let index = this.users.findIndex(i => i.id === id);
     this.user.nombre = this.users[index].nombre;
@@ -121,7 +118,7 @@ export class UsersComponent implements OnInit {
       })
 
 
-      console.log(nombres); // [{name: "Nepal", continent: "Asia"}]
+      console.log(nombres);
 
       this.usersAux = this.users;
       this.users = nombres.concat(edades).concat(carreras);
@@ -129,11 +126,7 @@ export class UsersComponent implements OnInit {
 
   }
 
-
 agregar(){
   this._router.navigate(['/crear']);
 }
-
-
-
 }
